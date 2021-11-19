@@ -25,7 +25,7 @@
 	<script>
 		// 建構子 ScoreOutputer 接受一個字串，該字串為 csv 的檔案名稱
 		// 以下面範例，檔名就為 "109598105(總分: 6).csv"
-		var so = new ScoreOutputer("110598063");
+		var so = new ScoreOutputer("109598105");
 		so.installCSS(function () {
 			// 安裝 bootstrap 的 css，如果在 html 上方引用 bootstrap 5.1.1 的話就不用使用 installCSS ，注意一定要 bootstrap css 5.1.1 版
 			// installCSS 接收一個 callback 當作參數，作為成功安裝 bootstrap css 的回呼函式
@@ -242,7 +242,7 @@
 				function initControls() {
 						var count = 0 ;
 						for ( const key in dictionary ) {
-							controls[  count.toString() + '. ' + key  ] = 0.0;
+							controls[   key  ] = 0.0;
 							count++ ;
 						}
 
@@ -261,7 +261,7 @@
 					var count = 0 ;
 					for ( const key in dictionary ) {
 
-						keys.push( count.toString() + '. ' + key );
+						keys.push(  key );
 						count++ ;
 
 					}
@@ -287,7 +287,7 @@
 					var count = 0 ;
 					for ( const key in dictionary ) {
 
-						morphs.add( controls, count.toString() + '. ' + key, 0.0, 1.0, 0.01 ).onChange( onChangeMorph );
+						morphs.add( controls,  key, 0.0, 1.0, 0.01 ).onChange( onChangeMorph );
 						count++ ;
 
 					}
@@ -299,7 +299,7 @@
 					var count = 0 ;
 					for ( let i = 0; i < keys.length; i ++ ) {
 
-						const key = count.toString() + '. ' + keys[ i ];
+						const key =  keys[ i ];
 						const value = controls[ key ];
 						mesh.morphTargetInfluences[ i ] = value;
 						count++ ;
